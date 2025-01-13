@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Food Item</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/_navbar.ejs') %>
+    </header>
+    <main>
+        <h1>Add a New Food Item</h1>
+        <form action="/users/<%= user._id %>/foods" method="POST">
+            <div>
+                <label for="name">Food Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="0" value="1">
+            </div>
+
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">-- Select Category --</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="fruit">Fruit</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="meat">Meat</option>
+                    <option value="grain">Grain</option>
+                    <option value="beverage">Beverage</option>
+                    <option value="snack">Snack</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="organic">Organic:</label>
+                <input type="checkbox" id="organic" name="organic" value="true">
+            </div>
+
+            <div>
+                <button type="submit">Add Food Item</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+
+</html>
